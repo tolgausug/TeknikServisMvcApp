@@ -24,9 +24,9 @@ namespace TS.Web.MODEL.Entities
         [Display(Name = "Tekniker Raporu")]
         [StringLength(200)]
         public string TeknikerRaporu { get; set; }
-        public decimal Fiyat { get; set; }
+        public decimal Fiyat { get; set; } = 0.0m;
         [Display(Name = "Tekniker İşlemi Bitirme Zamanı")]
-        public DateTime BitirmeZamani { get; set; }
+        public DateTime? BitirmeZamani { get; set; }
         public string OperatorId { get; set; }
         public string TeknikerId { get; set; }
 
