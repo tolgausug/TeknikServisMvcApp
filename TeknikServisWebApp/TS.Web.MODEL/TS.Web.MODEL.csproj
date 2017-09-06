@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\ArizaKaydi.cs" />
+    <Compile Include="Entities\ArizaKaydiDetay.cs" />
     <Compile Include="Entities\Kategori.cs" />
     <Compile Include="IdentityModels\ApplicationRole.cs" />
     <Compile Include="IdentityModels\ApplicationUser.cs" />
