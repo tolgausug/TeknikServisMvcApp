@@ -1104,6 +1104,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup1.cs" />
     <Compile Include="Areas\Yonetim\Controllers\AnaController.cs" />
+    <Compile Include="Areas\Yonetim\Controllers\HesapController.cs" />
     <Compile Include="Areas\Yonetim\YonetimAreaRegistration.cs" />
     <Compile Include="Controllers\AnaController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1204,6 +1205,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Yonetim\Models\" />
+    <Folder Include="Areas\Yonetim\Views\Hesap\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
