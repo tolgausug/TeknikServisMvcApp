@@ -162,6 +162,10 @@
     <Content Include="js\rs-plugin\videojs\font\vjs.eot" />
     <Content Include="js\rs-plugin\videojs\font\vjs.ttf" />
     <Content Include="js\rs-plugin\videojs\font\vjs.woff" />
+    <Content Include="page_error_404.html" />
+    <Content Include="page_header_1.html" />
+    <Content Include="page_log_in_page.html" />
+    <Content Include="page_registration_page.html" />
     <Content Include="video\beach.webm" />
     <Content Include="video\bg-video.webm" />
     <None Include="Web.Debug.config">

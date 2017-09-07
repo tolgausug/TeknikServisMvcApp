@@ -24,7 +24,7 @@ namespace TS.Web.MODEL.ViewModels
         [EmailAddress]
         public string Email { get; set; }
         [Required]
-        [StringLength(100, MinimumLength = 5, ErrorMessage = "Şifreniz en az 5 karakter olmalıdır!")]
+        [StringLength(100, MinimumLength = 6, ErrorMessage = "Şifreniz en az 6 karakter olmalıdır!")]
         [Display(Name = "Şifre")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
@@ -37,6 +37,8 @@ namespace TS.Web.MODEL.ViewModels
         [DataType(DataType.PhoneNumber)]
         [Display(Name = "Telefon")]
         public string Phone { get; set; }
-        public bool FirmaMi { get; set; } = false;
+        public bool OperatorMu { get; set; } = false;
+        public bool TeknisyenMi { get; set; } = false;
+        
     }
 }
