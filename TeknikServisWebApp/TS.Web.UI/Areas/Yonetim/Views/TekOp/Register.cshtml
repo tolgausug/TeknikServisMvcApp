@@ -1,0 +1,133 @@
+﻿@model RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Areas/Yonetim/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="j-menu-container"></div>
+
+<div class="b-inner-page-header f-inner-page-header b-bg-header-inner-page">
+    <div class="b-inner-page-header__content">
+        <div class="container">
+            <h1 class="f-primary-l c-default">Register an account</h1>
+        </div>
+    </div>
+</div>
+<div class="l-main-container">
+    <div class="b-breadcrumbs f-breadcrumbs">
+        <div class="container">
+            <ul>
+                <li><a href="#"><i class="fa fa-home"></i>Home</a></li>
+                <li><a href="#"><i class="fa fa-angle-right"></i> Extra pages</a></li>
+                <li><i class="fa fa-angle-right"></i><span> Register an account</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container b-container-login-page">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="widget">
+                    <div class="widget-body">
+                        <br />
+                        <br />
+                        <span class="text text-danger">@Html.ValidationSummary()</span>
+                        @using (Html.BeginForm("Register", "Hesap", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="row">
+                                <div class="form-group col-sm-6">
+                                    @Html.LabelFor(x => x.Name)
+                                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                                    <span class="text text-danger">
+                                        @Html.ValidationMessageFor(x => x.Name)
+                                    </span>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    @Html.LabelFor(x => x.Surname)
+                                    @Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.Surname)
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    @Html.LabelFor(x => x.Email)
+                                    @Html.TextBoxFor(x => x.Email, new { @class = "form-control", type = "email" })
+                                    @Html.ValidationMessageFor(x => x.Email)
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    @Html.LabelFor(x => x.Username)
+                                    @Html.TextBoxFor(x => x.Username, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.Username)
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    @Html.LabelFor(x => x.Password)
+                                    @Html.TextBoxFor(x => x.Password, new { @class = "form-control", type = "password" })
+                                    @Html.ValidationMessageFor(x => x.Password)
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    @Html.LabelFor(x => x.ConfirmPassword)
+                                    @Html.TextBoxFor(x => x.ConfirmPassword, new { @class = "form-control", type = "password" })
+                                    @Html.ValidationMessageFor(x => x.ConfirmPassword)
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    @Html.LabelFor(x => x.Phone)
+                                    @Html.TextBoxFor(x => x.Phone, new { @class = "form-control", type = "tel" })
+                                    @Html.ValidationMessageFor(x => x.Phone)
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <p>
+                                        <input type="submit" class="btn theme-btn" value="Kayıt Ol" />
+                                    </p>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <!-- end: Widget -->
+                </div>
+                <!-- /REGISTER -->
+            </div>
+
+            <div class="col-md-6">
+                <div class="f-primary-l f-title-big c-secondary">Welcome to Frexy Studio</div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis eu mi et pellentesque. Curabitur vestibulum convallis orci, quis dapibus elit fringilla eget. Suspendisse posuere diam ut erat convallis, non dictum quam luctus. </p>
+                <div class="b-shortcode-example">
+                    <ul class="b-list-markers f-list-markers">
+                        <li><i class="fa fa-check-circle b-list-markers__ico f-list-markers__ico"></i> <a href="#">Fusce viverra nisl eu nisl suscipit dictum.</a></li>
+                        <li><i class="fa fa-check-circle b-list-markers__ico f-list-markers__ico"></i> <a href="#">Morbi vehicula massa ut libero laoreet faucibus.</a></li>
+                        <li><i class="fa fa-check-circle b-list-markers__ico f-list-markers__ico"></i> <a href="#">Nullam a felis volutpat, gravida est eget, ultrices velit.</a></li>
+                        <li><i class="fa fa-check-circle b-list-markers__ico f-list-markers__ico"></i> <a href="#">Proin egestas nibh luctus dui cursus, sit amet vestibulum massa dignissim.</a></li>
+                        <li><i class="fa fa-check-circle b-list-markers__ico f-list-markers__ico"></i> <a href="#">Etiam facilisis sapien ut ornare euismod.</a></li>
+                    </ul>
+                </div>
+                <div class="b-logo-partner-box">
+                    <div class="b-logo-item">
+                        <a href="#">
+                            <img class="is-normal" src="img/slider/partner/client-logo-5.png" alt="" />
+                            <img class="is-hover" src="img/slider/partner/client-logo-5h.png" alt="" />
+                        </a>
+                    </div>
+                    <div class="b-logo-item">
+                        <a href="#">
+                            <img class="is-normal" src="img/slider/partner/client-logo-4.png" alt="" />
+                            <img class="is-hover" src="img/slider/partner/client-logo-4h.png" alt="" />
+                        </a>
+                    </div>
+                    <div class="b-logo-item">
+                        <a href="#">
+                            <img class="is-normal" src="img/slider/partner/client-logo-1.png" alt="" />
+                            <img class="is-hover" src="img/slider/partner/client-logo-1h.png" alt="" />
+                        </a>
+                    </div>
+                    <div class="b-logo-item">
+                        <a href="#">
+                            <img class="is-normal" src="img/slider/partner/client-logo-2.png" alt="" />
+                            <img class="is-hover" src="img/slider/partner/client-logo-2h.png" alt="" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

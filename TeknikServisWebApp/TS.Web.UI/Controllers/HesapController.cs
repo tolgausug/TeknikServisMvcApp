@@ -51,6 +51,7 @@ namespace TS.Web.UI.Areas.Yonetim.Controllers
                 //ActivationCode = actcode
             };
             bool adminMi = userManager.Users.Count() == 0;
+            
             var sonuc = await userManager.CreateAsync(user, model.ConfirmPassword);
             if (sonuc.Succeeded)
             {
@@ -58,6 +59,14 @@ namespace TS.Web.UI.Areas.Yonetim.Controllers
                 {
                     userManager.AddToRole(user.Id, "Admin");
 
+                }
+                else if(model.OperatorMu)
+                {
+                    userManager.AddToRole(user.Id, "Operator");
+                }
+                else if(model.TeknisyenMi)
+                {
+                    userManager.AddToRole(user.Id, "Teknisyen");
                 }
                 else
                 {
@@ -71,7 +80,7 @@ namespace TS.Web.UI.Areas.Yonetim.Controllers
                     Message = $"Merhaba {user.UserName}, <br/>Sisteme başarıyla kaydoldunuz<br/>Hesabınızı aktifleştirmek için <a href='{SiteUrl()}/hesap/aktivasyon?code={actcode}'>Aktivasyon Kodu</a>"
                 });
                 
-                return RedirectToAction("Giris", "Hesap"); // Değişecek
+                return RedirectToAction("Register", "Hesap"); // Değişecek
             }
             else
             {

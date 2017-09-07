@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -409,40 +409,46 @@
     <div class="container b-container-login-page">
         <div class="row">
             <div class="col-md-6">
-                <div class="b-log-in-form">
-                    <div class="f-primary-l f-title-big c-secondary">Create an account</div>
-                    <p>Consectetur adipiscing elituis sagittis eu mi et pellentesqueurabitur vestibulum</p>
-                    <hr class="b-hr" />
-                    <div class="b-form-row b-form-inline b-form-horizontal">
-                        <div class="col-xs-12">
-                            <div class="b-form-row">
-                                <label class="b-form-horizontal__label" for="create_account_email">Your Email</label>
-                                <div class="b-form-horizontal__input">
-                                    <input type="text" id="create_account_email" class="form-control" />
-                                </div>
+                <div class="widget">
+                    <div class="widget-body">
+                        <span class="text text-danger">@Html.ValidationSummary()</span>
+                        @using (Html.BeginForm("Giris", "Hesap", FormMethod.Post))
+                        {
+                        @Html.AntiForgeryToken()
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                @Html.LabelFor(x => x.NameEmail)
+                                @Html.TextBoxFor(x => x.NameEmail, new { @class = "form-control" })
+                                <span class="text text-danger">
+                                    @Html.ValidationMessageFor(x => x.NameEmail)
+                                </span>
                             </div>
-                            <div class="b-form-row">
-                                <label class="b-form-horizontal__label" for="create_account_password">Your password</label>
-                                <div class="b-form-horizontal__input">
-                                    <input type="text" id="create_account_password" class="form-control" />
-                                </div>
+                            <div class="form-group col-sm-6">
+                                @Html.LabelFor(x => x.Password)
+                                @Html.TextBoxFor(x => x.Password, new { @class = "form-control", type = "password" })
+                                @Html.ValidationMessageFor(x => x.Password)
                             </div>
-                            <div class="b-form-row">
-                                <div class="b-form-horizontal__label"></div>
-                                <label for="contact_form_copy" class="b-contact-form__window-form-row-label">
-                                    <input type="checkbox" id="contact_form_copy" class="b-form-checkbox" />
-                                    <span>Remember me</span>
-                                </label>
-                            </div>
-                            <div class="b-form-row">
-                                <div class="b-form-horizontal__label"></div>
-                                <div class="b-form-horizontal__input">
-                                    <a href="#" class="b-btn f-btn b-btn-md b-btn-default f-primary-b b-btn__w100">sign in now</a>
-                                </div>
+                            <div class="form-group col-sm-6">
+                                @Html.LabelFor(x => x.RememberMe)
+                                @Html.CheckBoxFor(x => x.RememberMe)
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <p>
+                                    <input type="submit" class="btn theme-btn" value="Giriş Yap" />
+                                </p>
+                                <p>
+                                    <a href="@Url.Action(" SifremiUnuttum","Hesap")" class="btn theme-btn">Şifremi Unuttum</a>
+                                </p>
+                            </div>
+                        </div>
+                        }
+
                     </div>
+                    <!-- end: Widget -->
                 </div>
+                <!-- /REGISTER -->
             </div>
             <div class="col-md-6">
                 <div class="f-primary-l f-title-big c-secondary">Log In with social account</div>

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Optimization;
 using System.Web.Routing;
 using TS.Web.BLL.Account;
 using TS.Web.MODEL.IdentityModels;
@@ -17,6 +18,7 @@ namespace TS.Web.UI
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             var roleManager = MembershipTools.NewRoleManager();
             if (!roleManager.RoleExists("Admin"))
