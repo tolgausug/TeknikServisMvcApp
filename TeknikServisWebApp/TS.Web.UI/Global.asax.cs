@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using TS.Web.UI.App_Start;
 
 namespace TS.Web.UI
 {
@@ -13,6 +14,8 @@ namespace TS.Web.UI
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+         
         }
     }
 }

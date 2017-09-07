@@ -85,9 +85,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account\MembershipTools.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\Repository.cs" />
     <Compile Include="Repository\RepositoryBase.cs" />
+    <Compile Include="SiteSettings\Settings.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
