@@ -3432,6 +3432,7 @@
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Views\_ProfilimLayoutPage.cshtml" />
     <Content Include="Views\Hesap\Profilim.cshtml" />
+    <Content Include="Views\Hesap\ArizaKaydiOlustur.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,17 +1,8 @@
-﻿@model ProfileViewModel
+﻿@model ArizaViewModel
 @{
-    ViewBag.Title = "Profilim";
+    ViewBag.Title = "ArizaKaydiOlustur";
     Layout = "~/Views/_ProfilimLayoutPage.cshtml";
 }
-
-<input type="button" id="btnkonumbul" class="btn btn-info" value="Konum Bul" />
-
- <div class="row">
-        <div class="col-md-12">
-            <div id="map"></div>
-        </div>
-    </div>
-
 
 
 <div>
@@ -25,8 +16,8 @@
                 @Html.AntiForgeryToken()
                 <div class="col-xs-12 col-sm-6">
                     <div class="b-contact-form__window-form-row">
-                        @Html.LabelFor(x=>x.Phone)
-                        @Html.TextBoxFor(x=>x.Phone , new {@class="form-control" })
+                        @Html.LabelFor(x => x.Phone)
+                        @Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })
                         <span class="text text-danger">
                             @Html.ValidationMessageFor(x => x.Phone)
                         </span>
@@ -39,8 +30,11 @@
                         </span>
                     </div>
                     <div class="b-contact-form__window-form-row">
-                        <label for="contact_form_website" class="b-contact-form__window-form-row-label">Your website</label>
-                        <input type="text" class="form-control" id="contact_form_website" />
+                        @Html.LabelFor(x => x.Kategori)
+                        @Html.DropDownListFor(x=>x.Kategori,(List<SelectListItem>)ViewBag.Kategori, new { @class = "form-control" })
+                        <span class="text text-danger">
+                            @Html.ValidationMessageFor(x => x.Kategori)
+                        </span>
                     </div>
                     <div class="b-contact-form__window-form-row">
                         <label for="contact_form_title" class="b-contact-form__window-form-row-label">Your title</label>
@@ -49,9 +43,12 @@
                 </div>
                 <div class="col-xs-12 col-sm-6">
                     <div class="b-contact-form__window-form-row">
-                        <label for="contact_form_message" class="b-contact-form__window-form-row-label">Your message</label>
-                        <textarea id="contact_form_message" rows="7" class="b-contact-form__window-form-textarea form-control"></textarea>
-                    </div>
+                        @Html.LabelFor(x => x.Aciklama)
+                        @Html.TextAreaFor(x => x.Aciklama,new { @class = "form-control" })
+                        <span class="text text-danger">
+                            @Html.ValidationMessageFor(x => x.Aciklama)
+                            </span>
+</div>
                     <div class="b-contact-form__window-form-row">
                         <label for="contact_form_copy" class="b-contact-form__window-form-row-label">
                             <input type="checkbox" id="contact_form_copy" class="b-form-checkbox" />
@@ -66,5 +63,4 @@
         </div>
     </section>
 </div>
-
 

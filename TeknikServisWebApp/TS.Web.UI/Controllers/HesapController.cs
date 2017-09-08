@@ -10,6 +10,7 @@ using TS.Web.MODEL.ViewModels;
 using static TS.Web.BLL.Account.MembershipTools;
 using TS.Web.BLL.SiteSettings;
 using Microsoft.Owin.Security;
+using TS.Web.BLL.Repository;
 
 namespace TS.Web.UI.Areas.Yonetim.Controllers
 {
@@ -284,6 +285,31 @@ namespace TS.Web.UI.Areas.Yonetim.Controllers
                 Message = $"Merhaba {kullanici.UserName},<br/>Yeni parolanız: <b>{parola}</b><br/><a href='{SiteUrl()}/hesap/giris'>Giriş Yap</a>"
             });
             return RedirectToAction("Index", "Ana");
+        }
+
+        public ActionResult ArizaKaydiOlustur()
+        {
+            ViewBag.Kategoriler = KategoriSelectList();
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ArizaKaydiOlustur(ArizaViewModel ariza)
+        {
+            ViewBag.Kategoriler = KategoriSelectList();
+            return View();
+        }
+        private List<SelectListItem> KategoriSelectList()
+        {
+            List<SelectListItem> kategoriler = new List<SelectListItem>();
+            new KategoriRepo().GetAll().OrderBy(x => x.KategoriAdi).ToList().ForEach(x =>
+            kategoriler.Add(new SelectListItem()
+            {
+                Text = x.KategoriAdi,
+                Value = x.Id.ToString()
+            }));
+            return kategoriler;
         }
 
         public string SiteUrl()
