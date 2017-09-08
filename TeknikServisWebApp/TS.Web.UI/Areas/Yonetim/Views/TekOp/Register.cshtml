@@ -73,7 +73,20 @@
                                     @Html.ValidationMessageFor(x => x.Phone)
                                 </div>
                             </div>
-
+                            <div class="row">
+                                <div class="form-group col-sm-6">
+                                    <div class="btn-group" data-toggle="buttons">
+                                        <label class="btn btn-secondary">
+                                            @Html.RadioButtonFor(x => x.OperatorMu, true) Operatör
+                                            @Html.RadioButtonFor(x => x.TeknisyenMi, false)
+                                        </label>
+                                        <label class="btn btn-secondary">
+                                        @Html.RadioButtonFor(x => x.OperatorMu, false) Teknisyen
+                                        @Html.RadioButtonFor(x => x.TeknisyenMi, true)
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
                             <div class="row">
                                 <div class="col-sm-4">
                                     <p>
@@ -130,4 +143,5 @@
         </div>
     </div>
 </div>
+
 

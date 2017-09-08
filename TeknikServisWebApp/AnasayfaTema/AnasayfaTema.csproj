@@ -94,6 +94,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="about_us_version_2.html" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config" />
     <Content Include="audio\Bombino-Tar-Hani.ogg" />

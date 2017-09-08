@@ -90,7 +90,7 @@ namespace TS.Web.UI.Areas.Yonetim.Controllers
                     Message = $"Merhaba {user.UserName}, <br/>Sisteme başarıyla kaydoldunuz<br/>Hesabınızı aktifleştirmek için <a href='{SiteUrl()}/hesap/aktivasyon?code={actcode}'>Aktivasyon Kodu</a>"
                 });
 
-                return RedirectToAction("Register", "Hesap"); // Değişecek
+                return RedirectToAction("Index", "Ana"); // Değişecek
             }
             else
             {
