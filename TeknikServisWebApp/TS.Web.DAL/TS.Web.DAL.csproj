@@ -145,6 +145,26 @@
     <Compile Include="Migrations\201709101301516_a16.Designer.cs">
       <DependentUpon>201709101301516_a16.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709101346047_a17.cs" />
+    <Compile Include="Migrations\201709101346047_a17.Designer.cs">
+      <DependentUpon>201709101346047_a17.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709101409275_a-18.cs" />
+    <Compile Include="Migrations\201709101409275_a-18.Designer.cs">
+      <DependentUpon>201709101409275_a-18.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709101420126_a-19.cs" />
+    <Compile Include="Migrations\201709101420126_a-19.Designer.cs">
+      <DependentUpon>201709101420126_a-19.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709101529559_a-20.cs" />
+    <Compile Include="Migrations\201709101529559_a-20.Designer.cs">
+      <DependentUpon>201709101529559_a-20.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709101551505_a-21.cs" />
+    <Compile Include="Migrations\201709101551505_a-21.Designer.cs">
+      <DependentUpon>201709101551505_a-21.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MyContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -152,6 +172,9 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Scripts\angular-animate.min.js.map" />
+    <None Include="Scripts\angular-aria.min.js.map" />
+    <None Include="Scripts\angular.min.js.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TS.Web.MODEL\TS.Web.MODEL.csproj">
@@ -205,6 +228,40 @@
     <EmbeddedResource Include="Migrations\201709101301516_a16.resx">
       <DependentUpon>201709101301516_a16.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709101346047_a17.resx">
+      <DependentUpon>201709101346047_a17.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709101409275_a-18.resx">
+      <DependentUpon>201709101409275_a-18.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709101420126_a-19.resx">
+      <DependentUpon>201709101420126_a-19.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709101529559_a-20.resx">
+      <DependentUpon>201709101529559_a-20.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709101551505_a-21.resx">
+      <DependentUpon>201709101551505_a-21.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\angular-material.css" />
+    <Content Include="Content\angular-material.layout-attributes.css" />
+    <Content Include="Content\angular-material.layout-attributes.min.css" />
+    <Content Include="Content\angular-material.layouts.css" />
+    <Content Include="Content\angular-material.layouts.ie_fixes.css" />
+    <Content Include="Content\angular-material.layouts.min.css" />
+    <Content Include="Content\angular-material.min.css" />
+    <Content Include="Scripts\angular-animate.js" />
+    <Content Include="Scripts\angular-animate.min.js" />
+    <Content Include="Scripts\angular-aria.js" />
+    <Content Include="Scripts\angular-aria.min.js" />
+    <Content Include="Scripts\angular-material-mocks.js" />
+    <Content Include="Scripts\angular-material.js" />
+    <Content Include="Scripts\angular-material.min.js" />
+    <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

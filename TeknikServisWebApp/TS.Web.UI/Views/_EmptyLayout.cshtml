@@ -1,10 +1,10 @@
 ﻿<!DOCTYPE html>
 
-<html>
+<html ng-app="admin">
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-
+    <script src="~/Scripts/angular.min.js"></script>
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- bxslider -->
     <link type="text/css" rel='stylesheet' href="~/js/bxslider/jquery.bxslider.css">
@@ -29,9 +29,10 @@
     <!-- Fancybox -->
     <link type="text/css" rel='stylesheet' href="~/js/fancybox/jquery.fancybox.css">
     <!-- End Fancybox -->
-
+    
     <link type="text/css" rel='stylesheet' href="~/fonts/fonts.css">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+    <link href="~/Content/angular-material.css" rel="stylesheet" />
     <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
     <link type="text/css" data-themecolor="default" rel='stylesheet' href="~/css/main-default.css">
@@ -50,7 +51,7 @@
 
     
 
-    @Html.Partial("_FooterPartialPage1")
+    @*@Html.Partial("_FooterPartialPage1")*@
 
     <script src="~/js/breakpoints.js"></script>
     <script src="~/js/jquery/jquery-1.11.1.min.js"></script>
@@ -122,7 +123,11 @@
     <script src="~/js/loader.js"></script>
     <script src="~/js/scrollIt/scrollIt.min.js"></script>
     <script src="~/js/modules/navigation-slide.js"></script>
-
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/angular-animate.js"></script>
+    <script src="~/Scripts/angular-aria.js"></script>
+    <script src="~/Scripts/angular-material.js"></script>
+    <script src="~/Scripts/AnaApp.js"></script>
 </body>
 </html>
 

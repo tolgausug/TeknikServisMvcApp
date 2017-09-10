@@ -19,8 +19,7 @@ namespace TS.Web.MODEL.Entities
         [Display(Name = "Açıklama")]
         [StringLength(200)]
         public string Aciklama { get; set; }
-        [Display(Name = "Arıza Fotoğraf Yolu")]
-        public string ArizaFotografYolu { get; set; }
+        public string UrunFotografYolu { get; set; }
         [StringLength(50)]
         public string Konumu { get; set; }
         [StringLength(200)]

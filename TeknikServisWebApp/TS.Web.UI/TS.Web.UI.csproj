@@ -1552,6 +1552,13 @@
     <Content Include="audio\Denali-Hold-Your-Breath.mp3" />
     <Content Include="audio\JJ-Grey-Mofro-99-Shades-Of-Crazy.mp3" />
     <Content Include="audio\Shoji_Meguro_-_Alone.mp3" />
+    <Content Include="Content\angular-material.css" />
+    <Content Include="Content\angular-material.layout-attributes.css" />
+    <Content Include="Content\angular-material.layout-attributes.min.css" />
+    <Content Include="Content\angular-material.layouts.css" />
+    <Content Include="Content\angular-material.layouts.ie_fixes.css" />
+    <Content Include="Content\angular-material.layouts.min.css" />
+    <Content Include="Content\angular-material.min.css" />
     <Content Include="css\animate.css" />
     <Content Include="css\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap.min.css" />
@@ -2491,6 +2498,7 @@
     <Content Include="js\smooth-scroll\SmoothScroll.js" />
     <Content Include="js\timeline.js" />
     <Content Include="js\user.js" />
+    <Content Include="Scripts\AnaApp.js" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
@@ -2500,6 +2508,9 @@
     <Content Include="Scripts\angular-csp.css" />
     <Content Include="Scripts\angular-loader.js" />
     <Content Include="Scripts\angular-loader.min.js" />
+    <Content Include="Scripts\angular-material-mocks.js" />
+    <Content Include="Scripts\angular-material.js" />
+    <Content Include="Scripts\angular-material.min.js" />
     <Content Include="Scripts\angular-message-format.js" />
     <Content Include="Scripts\angular-message-format.min.js" />
     <Content Include="Scripts\angular-messages.js" />
@@ -3269,7 +3280,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup1.cs" />
     <Compile Include="Areas\Yonetim\Controllers\AnaController.cs" />
+    <Compile Include="Areas\Yonetim\Controllers\ArizaController.cs" />
     <Compile Include="Areas\Yonetim\Controllers\TekOpController.cs" />
+    <Compile Include="Controllers\ArizalarimController.cs" />
     <Compile Include="Controllers\HesapController.cs" />
     <Compile Include="Areas\Yonetim\YonetimAreaRegistration.cs" />
     <Compile Include="Controllers\AnaController.cs" />
@@ -3434,6 +3447,8 @@
     <Content Include="Views\Hesap\Profilim.cshtml" />
     <Content Include="Views\Hesap\ArizaKaydiOlustur.cshtml" />
     <Content Include="Areas\Yonetim\Views\TekOp\KategoriEkle.cshtml" />
+    <Content Include="Areas\Yonetim\Views\Ariza\Index.cshtml" />
+    <Content Include="Views\Arizalarim\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

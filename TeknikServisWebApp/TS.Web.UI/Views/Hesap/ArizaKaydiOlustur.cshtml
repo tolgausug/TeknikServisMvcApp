@@ -13,50 +13,59 @@
                     Arıza Kaydı Oluştur
                     <hr />
                 </div>
-            <span class="text text-danger">@Html.ValidationSummary()</span>
-                @using (Html.BeginForm("ArizaKaydiOlustur", "Hesap", FormMethod.Post))
+                <span class="text text-danger">@Html.ValidationSummary()</span>
+                @using (Html.BeginForm("ArizaKaydiOlustur", "Hesap", FormMethod.Post, new { enctype = "multipart/form-data" }))
                 {
-                @Html.AntiForgeryToken()
-                <div class="col-xs-12 col-sm-6">
-                    <div class="b-contact-form__window-form-row">
-                        @Html.LabelFor(x => x.Aciklama)
-                        @Html.TextAreaFor(x => x.Aciklama, new { @class = "form-control" })
-                        <span class="text text-danger">
-                            @Html.ValidationMessageFor(x => x.Aciklama)
-                        </span>
-                    </div>
-                    <div class="b-contact-form__window-form-row">
-                        @Html.LabelFor(x => x.KategoriId)
-                        @Html.DropDownListFor(x => x.KategoriId, (List<SelectListItem>)ViewBag.Kategori, new { @class = "form-control" })
-                       
-                    </div>
-                    <div class="b-contact-form__window-form-row">
-                        @Html.Label("Fotoğraf")
-                        @Html.TextBoxFor(x =>x.ArizaFotografFile,  new { @class = "form-control" ,type="file"})
-                    </div>
-                    <div class="b-contact-form__window-form-row">
-                        <label for="contact_form_title" class="b-contact-form__window-form-row-label">Konumunuz</label>
-                        <input type="text" class="form-control" id="contact_form_title" />
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6">
-                    <div class="b-contact-form__window-form-row">
-                        <label for="contact_form_copy" class="b-contact-form__window-form-row-label">
-                            <input type="checkbox" id="contact_form_copy" class="b-form-checkbox" />
-                            <span><span class="f-primary">Send me a copy</span></span>
-                        </label>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <p>
-                                <input type="submit" class="btn theme-btn" value="Kayıt Ol" />
-                            </p>
+                    @Html.AntiForgeryToken()
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="b-contact-form__window-form-row">
+                            
+                            @Html.LabelFor(x => x.Aciklama)
+                            @Html.TextAreaFor(x => x.Aciklama, new { @class = "form-control" })
+                            <span class="text text-danger">
+                                @Html.ValidationMessageFor(x => x.Aciklama)
+                            </span>
+                        </div>
+                        <div class="b-contact-form__window-form-row">
+                            @Html.LabelFor(x => x.KategoriId)
+                            @Html.DropDownListFor(x => x.KategoriId, (List<SelectListItem>)ViewBag.Kategori, new { @class = "form-control" })
+
+                        </div>
+                        <div class="b-contact-form__window-form-row">
+
+                            @Html.LabelFor(x => x.Adres)
+                            @Html.TextAreaFor(x => x.Adres, new { @class = "form-control" })
+                            <span class="text text-danger">
+                                @Html.ValidationMessageFor(x => x.Adres)
+                            </span>
+                        </div>
+                        <div class="b-contact-form__window-form-row">
+                            @Html.Label("Fotoğraf")
+                            @Html.TextBoxFor(x => x.UrunFotografFile, new { @class = "form-control", type = "file" })
+                        </div>
+                        <div class="b-contact-form__window-form-row">
+                            <label for="contact_form_title" class="b-contact-form__window-form-row-label">Konumunuz</label>
+                            <input type="text" class="form-control" id="contact_form_title" />
                         </div>
                     </div>
-                </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="b-contact-form__window-form-row">
+                            <label for="contact_form_copy" class="b-contact-form__window-form-row-label">
+                                <input type="checkbox" id="contact_form_copy" class="b-form-checkbox" />
+                                <span><span class="f-primary">Send me a copy</span></span>
+                            </label>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <p>
+                                    <input type="submit" class="btn theme-btn" value="Kayıt Ol" />
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 }
             </div>
-                
+
         </div>
     </section>
 </div>

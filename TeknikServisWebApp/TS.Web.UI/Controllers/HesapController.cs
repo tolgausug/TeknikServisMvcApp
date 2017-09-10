@@ -302,10 +302,12 @@ namespace TS.Web.UI.Areas.Yonetim.Controllers
         public ActionResult ArizaKaydiOlustur(ArizaViewModel ariza)
         {
             ariza.MusteriId = HttpContext.User.Identity.GetUserId();
-            int a= new ArizaKaydiRepo().Insert(ariza);
-            if (ariza.ArizaFotografFile != null && ariza.ArizaFotografFile.ContentLength > 0)
+            
+            var a = new ArizaKaydiRepo().Insert(ariza);
+            
+            if (ariza.UrunFotografFile != null && ariza.UrunFotografFile.ContentLength > 0)
             {
-                var file = ariza.ArizaFotografFile;
+                var file = ariza.UrunFotografFile;
                 string fileName = Path.GetFileNameWithoutExtension(file.FileName);
                 string extName = Path.GetExtension(file.FileName);
 
@@ -324,7 +326,7 @@ namespace TS.Web.UI.Areas.Yonetim.Controllers
                     horizontalAlign: "Left");
                 img.Save(dosyaYolu);
                 var uu = new ArizaKaydiRepo().GetById(a);
-                uu.ArizaFotografYolu = $"Upload/Urunler/{a}/{fileName}{extName}";
+                uu.UrunFotografYolu = $"Upload/Urunler/{a}/{fileName}{extName}";
                 new ArizaKaydiRepo().Update();
             }
             return RedirectToAction("Index", "Ana");
