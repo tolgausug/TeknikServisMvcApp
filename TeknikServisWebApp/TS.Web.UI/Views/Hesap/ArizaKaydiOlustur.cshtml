@@ -13,53 +13,50 @@
                     Arıza Kaydı Oluştur
                     <hr />
                 </div>
+            <span class="text text-danger">@Html.ValidationSummary()</span>
+                @using (Html.BeginForm("ArizaKaydiOlustur", "Hesap", FormMethod.Post))
+                {
                 @Html.AntiForgeryToken()
                 <div class="col-xs-12 col-sm-6">
                     <div class="b-contact-form__window-form-row">
-                        @Html.LabelFor(x => x.Phone)
-                        @Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })
-                        <span class="text text-danger">
-                            @Html.ValidationMessageFor(x => x.Phone)
-                        </span>
-                    </div>
-                    <div class="b-contact-form__window-form-row">
                         @Html.LabelFor(x => x.Aciklama)
-                        @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control" })
+                        @Html.TextAreaFor(x => x.Aciklama, new { @class = "form-control" })
                         <span class="text text-danger">
                             @Html.ValidationMessageFor(x => x.Aciklama)
                         </span>
                     </div>
                     <div class="b-contact-form__window-form-row">
-                        @Html.LabelFor(x => x.Kategori)
-                        @Html.DropDownListFor(x=>x.Kategori,(List<SelectListItem>)ViewBag.Kategori, new { @class = "form-control" })
-                        <span class="text text-danger">
-                            @Html.ValidationMessageFor(x => x.Kategori)
-                        </span>
+                        @Html.LabelFor(x => x.KategoriId)
+                        @Html.DropDownListFor(x => x.KategoriId, (List<SelectListItem>)ViewBag.Kategori, new { @class = "form-control" })
+                       
                     </div>
                     <div class="b-contact-form__window-form-row">
-                        <label for="contact_form_title" class="b-contact-form__window-form-row-label">Your title</label>
+                        @Html.Label("Fotoğraf")
+                        @Html.TextBoxFor(x =>x.ArizaFotografFile,  new { @class = "form-control" ,type="file"})
+                    </div>
+                    <div class="b-contact-form__window-form-row">
+                        <label for="contact_form_title" class="b-contact-form__window-form-row-label">Konumunuz</label>
                         <input type="text" class="form-control" id="contact_form_title" />
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6">
-                    <div class="b-contact-form__window-form-row">
-                        @Html.LabelFor(x => x.Aciklama)
-                        @Html.TextAreaFor(x => x.Aciklama,new { @class = "form-control" })
-                        <span class="text text-danger">
-                            @Html.ValidationMessageFor(x => x.Aciklama)
-                            </span>
-</div>
                     <div class="b-contact-form__window-form-row">
                         <label for="contact_form_copy" class="b-contact-form__window-form-row-label">
                             <input type="checkbox" id="contact_form_copy" class="b-form-checkbox" />
                             <span><span class="f-primary">Send me a copy</span></span>
                         </label>
                     </div>
-                    <div class="b-contact-form__window-form-row">
-                        <a href="#" class="b-btn f-btn b-btn-md b-btn-default f-primary-b b-contact-form__window-form-row-button">send message</a>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <p>
+                                <input type="submit" class="btn theme-btn" value="Kayıt Ol" />
+                            </p>
+                        </div>
                     </div>
                 </div>
+                }
             </div>
+                
         </div>
     </section>
 </div>

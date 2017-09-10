@@ -3433,6 +3433,7 @@
     <Content Include="Views\_ProfilimLayoutPage.cshtml" />
     <Content Include="Views\Hesap\Profilim.cshtml" />
     <Content Include="Views\Hesap\ArizaKaydiOlustur.cshtml" />
+    <Content Include="Areas\Yonetim\Views\TekOp\KategoriEkle.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3450,6 +3451,10 @@
     <ProjectReference Include="..\TS.Web.BLL\TS.Web.BLL.csproj">
       <Project>{02cc87dd-8cd2-4913-b23c-8ed07c30d6f6}</Project>
       <Name>TS.Web.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TS.Web.DAL\TS.Web.DAL.csproj">
+      <Project>{A9CF39DD-B90D-4C84-ABDE-6E1910C6444F}</Project>
+      <Name>TS.Web.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\TS.Web.MODEL\TS.Web.MODEL.csproj">
       <Project>{f68c21da-125f-4c02-937f-a9cdda029ccf}</Project>

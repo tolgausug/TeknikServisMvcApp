@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -11,18 +11,13 @@ namespace TS.Web.MODEL.ViewModels
 {
     public class ArizaViewModel
     {
+        public string MusteriId { get; set; }
         [StringLength(250, MinimumLength = 10, ErrorMessage = "10 Karakterden az olmamalıdır")]
         [Display(Name = "Açıklama")]
         public string Aciklama { get; set; }
+        public int KategoriId { get; set; }
+        [Display(Name = "Arıza Fotoğraf Yolu")]
+        public HttpPostedFileBase ArizaFotografFile { get; set; }
 
-        [Display(Name = "Telefon Numarası")]
-        [DataType(DataType.PhoneNumber)]
-        public string Phone { get; set; }
-
-        public Kategori Kategori { get; set; }
-
-        public HttpPostedFileBase UrunFotografFile { get; set; }
-
-        public string UrunFotografYolu { get; set; }
     }
 }

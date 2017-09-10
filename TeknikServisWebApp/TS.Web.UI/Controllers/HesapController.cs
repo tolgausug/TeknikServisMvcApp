@@ -11,6 +11,9 @@ using static TS.Web.BLL.Account.MembershipTools;
 using TS.Web.BLL.SiteSettings;
 using Microsoft.Owin.Security;
 using TS.Web.BLL.Repository;
+using TS.Web.MODEL.Entities;
+using System.IO;
+using System.Web.Helpers;
 
 namespace TS.Web.UI.Areas.Yonetim.Controllers
 {
@@ -52,7 +55,7 @@ namespace TS.Web.UI.Areas.Yonetim.Controllers
                 //ActivationCode = actcode
             };
             bool adminMi = userManager.Users.Count() == 0;
-            
+
             var sonuc = await userManager.CreateAsync(user, model.ConfirmPassword);
             if (sonuc.Succeeded)
             {
@@ -61,18 +64,18 @@ namespace TS.Web.UI.Areas.Yonetim.Controllers
                     userManager.AddToRole(user.Id, "Admin");
 
                 }
-                else if(model.OperatorMu)
+                else if (model.OperatorMu)
                 {
                     userManager.AddToRole(user.Id, "Operator");
                 }
-                else if(model.TeknisyenMi)
+                else if (model.TeknisyenMi)
                 {
                     userManager.AddToRole(user.Id, "Teknisyen");
                 }
                 else
                 {
                     userManager.AddToRole(user.Id, "Musteri");
-                    
+
                 }
                 await Settings.SendMail(new MailModel()
                 {
@@ -80,7 +83,7 @@ namespace TS.Web.UI.Areas.Yonetim.Controllers
                     Subject = "Hoşgeldiniz",
                     Message = $"Merhaba {user.UserName}, <br/>Sisteme başarıyla kaydoldunuz<br/>Hesabınızı aktifleştirmek için <a href='{SiteUrl()}/hesap/aktivasyon?code={actcode}'>Aktivasyon Kodu</a>"
                 });
-                
+
                 return RedirectToAction("Register", "Hesap"); // Değişecek
             }
             else
@@ -147,7 +150,7 @@ namespace TS.Web.UI.Areas.Yonetim.Controllers
                     IsPersistent = model.RememberMe
                 }, userIdentity);
             }
-            
+
             return RedirectToAction("Index", "Ana"); //Değişecek
         }
 
@@ -232,13 +235,13 @@ namespace TS.Web.UI.Areas.Yonetim.Controllers
             await userStore.UpdateAsync(sonuc);
             await userStore.Context.SaveChangesAsync();
             ViewBag.sonuc = "Aktivasyon başarılı";
-           /* await SiteSettings.SendMail(new MailModel()
-            {
-                To = sonuc.Email,
-                Subject = "Aktivasyon başarılı",
-                Message = $"Merhaba {sonuc.UserName}, Aktivasyon işleminiz başarılı :)"
-            });
-            */
+            /* await SiteSettings.SendMail(new MailModel()
+             {
+                 To = sonuc.Email,
+                 Subject = "Aktivasyon başarılı",
+                 Message = $"Merhaba {sonuc.UserName}, Aktivasyon işleminiz başarılı :)"
+             });
+             */
             HttpContext.GetOwinContext().Authentication.SignOut();
             return View();
         }
@@ -254,7 +257,7 @@ namespace TS.Web.UI.Areas.Yonetim.Controllers
                 Subject = "Aktivasyon Kodu",
                 Message = $"Merhaba {user.UserName}, <br/>Hesabınızı aktifleştirmek için <a href='{SiteUrl()}/hesap/aktivasyon?code={user.ActivationCode}'>Aktivasyon Kodu</a>"
             });
-            
+
             return RedirectToAction("Profilim");
         }
         public ActionResult SifremiUnuttum()
@@ -289,17 +292,46 @@ namespace TS.Web.UI.Areas.Yonetim.Controllers
 
         public ActionResult ArizaKaydiOlustur()
         {
-            ViewBag.Kategoriler = KategoriSelectList();
+            ViewBag.Kategori = KategoriSelectList();
             return View();
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ArizaKaydiOlustur(ArizaViewModel ariza)
         {
-            ViewBag.Kategoriler = KategoriSelectList();
-            return View();
+            ariza.MusteriId = HttpContext.User.Identity.GetUserId();
+            int a= new ArizaKaydiRepo().Insert(ariza);
+            if (ariza.ArizaFotografFile != null && ariza.ArizaFotografFile.ContentLength > 0)
+            {
+                var file = ariza.ArizaFotografFile;
+                string fileName = Path.GetFileNameWithoutExtension(file.FileName);
+                string extName = Path.GetExtension(file.FileName);
+
+                fileName = fileName?.Replace(" ", "");
+                fileName += Guid.NewGuid().ToString().Replace("-", "");
+                fileName = Settings.UrlFormatConverter(fileName);
+                var klasorYolu = Server.MapPath("~/Upload/Urunler/" + a);
+                var dosyaYolu = Server.MapPath("~/Upload/Urunler/" + a + "/") + fileName + extName;
+                if (!Directory.Exists(klasorYolu))
+                    Directory.CreateDirectory(klasorYolu);
+                file.SaveAs(dosyaYolu);
+                WebImage img = new WebImage(dosyaYolu);
+                //100x80
+                img.Resize(1000, 800, false);
+                img.AddTextWatermark("Sefer Tası - BAU", "Tomato", opacity: 75, fontSize: 12, fontFamily: "Verdana",
+                    horizontalAlign: "Left");
+                img.Save(dosyaYolu);
+                var uu = new ArizaKaydiRepo().GetById(a);
+                uu.ArizaFotografYolu = $"Upload/Urunler/{a}/{fileName}{extName}";
+                new ArizaKaydiRepo().Update();
+            }
+            return RedirectToAction("Index", "Ana");
         }
+    
+                
+        
         private List<SelectListItem> KategoriSelectList()
         {
             List<SelectListItem> kategoriler = new List<SelectListItem>();

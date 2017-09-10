@@ -5,7 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using TS.Web.BLL.Repository;
 using TS.Web.BLL.SiteSettings;
+using TS.Web.MODEL.Entities;
 using TS.Web.MODEL.IdentityModels;
 using TS.Web.MODEL.ViewModels;
 using static TS.Web.BLL.Account.MembershipTools;
@@ -97,6 +99,38 @@ namespace TS.Web.UI.Areas.Yonetim.Controllers
                 ModelState.AddModelError(string.Empty, "Kullanıcı kayıt işleminde hata oluştu!");
                 return View(model);
             }
+        }
+        public ActionResult KategoriEkle()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
+        public ActionResult KategoriEkle(KategoriViewModel kategori)
+        {
+            if (!ModelState.IsValid)
+                return View(kategori);
+            var yeniKategori = new Kategori()
+            {
+                KategoriAdi = kategori.KategoriAdi,
+                Aciklama = kategori.Aciklama
+            };
+            new KategoriRepo().Insert(yeniKategori);
+            ViewBag.Kategori = KategoriSelectList();
+            return RedirectToAction("KategoriEkle");
+
+        }
+        private List<SelectListItem> KategoriSelectList()
+        {
+            List<SelectListItem> kategoriler = new List<SelectListItem>();
+            new KategoriRepo().GetAll().OrderBy(x => x.KategoriAdi).ToList().ForEach(x =>
+            kategoriler.Add(new SelectListItem()
+            {
+                Text = x.KategoriAdi,
+                Value = x.Id.ToString()
+            }));
+            return kategoriler;
         }
     }
 }

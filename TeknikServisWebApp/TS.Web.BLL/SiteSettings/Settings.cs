@@ -9,7 +9,7 @@ using TS.Web.MODEL.ViewModels;
 
 namespace TS.Web.BLL.SiteSettings
 {
-    public class Settings
+    public static class Settings
     {
         public static string SiteMail = "wissen502wissen@gmail.com";
         public static string SiteMailPassword = "wissen502";
@@ -39,6 +39,7 @@ namespace TS.Web.BLL.SiteSettings
                 await smtp.SendMailAsync(message);
             }
         }
+
         public static string UrlFormatConverter(string url)
         {
             string sonuc = url;

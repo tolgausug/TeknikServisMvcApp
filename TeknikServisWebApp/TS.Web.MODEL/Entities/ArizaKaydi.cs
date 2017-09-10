@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using TS.Web.MODEL.IdentityModels;
 
 namespace TS.Web.MODEL.Entities
@@ -30,7 +31,7 @@ namespace TS.Web.MODEL.Entities
         [Display(Name = "Oluşturulma Zamanı")]
         public DateTime OlusturulmaZamani { get; set; } = DateTime.Now;
         public string MusteriId { get; set; }
-
+        
         [ForeignKey("KategoriId")]
         public virtual Kategori Kategori { get; set; }
 

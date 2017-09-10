@@ -1,0 +1,48 @@
+﻿@model KategoriViewModel
+@{
+    ViewBag.Title = "KategoriEkle";
+    Layout = "~/Areas/Yonetim/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="b-contact-form container">
+    <div class="b-contact-form__window c-primary">
+        <div class="col-xs-12 b-contact-form__window-title f-contact-form__window-title text-uppercase f-primary-b">
+            Yeni Kategori Ekle
+            <hr />
+        </div>
+        <span class="text text-danger">@Html.ValidationSummary()</span>
+        @using (Html.BeginForm("KategoriEkle", "TekOp", FormMethod.Post))
+            {
+            @Html.AntiForgeryToken()
+            <div class="col-xs-6">
+                <div class="b-contact-form__window-form-row">
+                    @Html.LabelFor(x => x.KategoriAdi)
+                    @Html.TextBoxFor(x => x.KategoriAdi, new { @class = "form-control" })
+                    <span class="text text-danger">
+                        @Html.ValidationMessageFor(x => x.KategoriAdi)
+                    </span>
+                </div>
+                <br />
+                <div class="b-contact-form__window-form-row">
+                    @Html.LabelFor(x => x.Aciklama)
+                    @Html.TextAreaFor(x => x.Aciklama, new { @class = "form-control" })
+                    <span class="text text-danger">
+                        @Html.ValidationMessageFor(x => x.Aciklama)
+                    </span>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p>
+                            <input type="submit" class="btn theme-btn" value="Kategori Ekle" />
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        }
+    </div>
+</div>
+
+
+

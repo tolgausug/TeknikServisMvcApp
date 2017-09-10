@@ -31,13 +31,7 @@
                             @Html.ValidationMessageFor(x => x.Phone)
                         </span>
                     </div>
-                    <div class="b-contact-form__window-form-row">
-                        @Html.LabelFor(x => x.Aciklama)
-                        @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control" })
-                        <span class="text text-danger">
-                            @Html.ValidationMessageFor(x => x.Aciklama)
-                        </span>
-                    </div>
+                
                     <div class="b-contact-form__window-form-row">
                         <label for="contact_form_website" class="b-contact-form__window-form-row-label">Your website</label>
                         <input type="text" class="form-control" id="contact_form_website" />
